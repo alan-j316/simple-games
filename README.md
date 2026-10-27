@@ -2,8 +2,7 @@
 
 # Collection of Simple Games
 
-A high-performance boilerplate for C++ development featuring CMake integration, Google Test (GTest) for unit testing,
-and Google Benchmark for performance analysis.
+Collection of Simple Games(Pong and Asteroids) made with C++ made following Sanjay Madhav's C++ Game Programming book.
 
 # Prerequisites
 
@@ -19,13 +18,6 @@ Ensure the following tools are installed and available in your system PATH:
 
 - <a href="https://releases.llvm.org/download.html" target="_blank">Clang-Format</a> : Required for automated code style
   enforcement.
-
-## CMake Configuration
-
-- **ENABLE_STRICT**: Enables application level strict mode by enforcing "treating all warnings as errors". **ON** by
-  default
-  in both CI/CD and CMakePresets.
-- **ENABLE_TEST**: Enables *test application*. **ON** by default in both CI/CD and CMakePresets.
 
 ## Getting Started
 
@@ -50,17 +42,6 @@ Run these targets to maintain code quality and documentation.
 - Auto-Format: `cmake --build build --target format`
 
 - Generate Docs: cmake `--build build --target docs`
-
-## Build Configurations (Windows)
-
-The template includes two specialized batch scripts for rapid environment setup:
-Script Description Features
-
-_genStrict.bat_ Production/CI Mode Enables AddressSanitizer (ASAN) and treats all compiler warnings as errors (/W4 /WX).
-
-_genNoStrict.bat_ Development Mode Standard build without strict flags for faster iteration and debugging.
-
-**Note: You must run a configuration command (or script) before executing any --build targets.**
 
 ## Doxygen Configuration
 
