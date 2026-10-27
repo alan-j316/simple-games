@@ -30,5 +30,4 @@ target_link_libraries(
         imgui
         SDL3_image::SDL3_image
         SimpleMath
-        EngineCore
 )

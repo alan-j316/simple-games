@@ -15,7 +15,6 @@ target_sources(
 
 target_link_libraries(
         Pong PRIVATE
-        Peregrine
         ${PROJECT_NAME}-StrictWarnings
 
         imgui
