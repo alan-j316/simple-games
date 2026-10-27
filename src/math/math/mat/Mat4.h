@@ -69,10 +69,13 @@ namespace math
         ///  Multiply this matrix with another matrix @p mat in-place.
         [[nodiscard]] constexpr Mat4& operator*=(const Mat4& mat) noexcept;
 
-        /// Get the raw pointer to the internal data.
+        /// Get a raw pointer to the underlying data.
         /// @note The data is strictly arranged in a column major order, so if you need a row-major layout
         ///       use @ref transpose.
-        [[nodiscard]] float* ptr() const noexcept;
+        [[nodiscard]] const float* ptr() const noexcept;
+
+        /// Get a raw pointer to the underlying data.
+        [[nodiscard]] float* ptr() noexcept;
 
         /// Get a scale transformation factory along coordinate axis.
         [[nodiscard]] static constexpr Mat4 getScale(const float x, const float y, const float z) noexcept
@@ -189,6 +192,8 @@ namespace math
         return *this;
     }
 
-    inline float* Mat4::ptr() const noexcept { return *_data.data()[0]; }
+    inline const float* Mat4::ptr() const noexcept { return _data.data()[0].ptr(); }
+
+    inline float* Mat4::ptr() noexcept { return _data.data()[0].ptr(); }
 
 } // namespace math

@@ -12,7 +12,7 @@
 
 #include "Component.h"
 
-#include <psm/PSMath.h>
+#include <math/SimpleMath.h>
 
 namespace asteroids::comp
 {
@@ -22,10 +22,10 @@ namespace asteroids::comp
         explicit CircleComponent(actors::Actor* owner) noexcept;
 
         constexpr void setRadius(const float radius) noexcept { _radius = radius; }
-        constexpr void setCenter(const psm::Vec2& center) noexcept { _center = center; }
+        constexpr void setCenter(const math::Vec2& center) noexcept { _center = center; }
 
         [[nodiscard]] constexpr float getRadius() const noexcept { return _radius; }
-        [[nodiscard]] psm::Vec2 getCenter() const noexcept { return _center; }
+        [[nodiscard]] math::Vec2 getCenter() const noexcept { return _center; }
 
         void debugDraw() const;
 
@@ -40,6 +40,6 @@ namespace asteroids::comp
 
     private:
         float _radius{};
-        psm::Vec2 _center{};
+        math::Vec2 _center{};
     };
 } // namespace asteroids::comp

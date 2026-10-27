@@ -67,9 +67,9 @@ namespace math
     constexpr Quat Quat::operator*(const Quat& other) const noexcept
     {
         // q1q2 = v1 x v2 + s1 * v2 + s2 * v1 - v1.v2
-        auto v = v * other.s + other.v * s + v.cross(other.v);
-        auto s = s * other.s - v.dot(other.v);
-        return Quat{ v, s };
+        const auto v1 = v * other.s + other.v * s + v.cross(other.v);
+        const auto s1 = s * other.s - v.dot(other.v);
+        return Quat{ v1, s1 };
     }
 
     constexpr Vec3 Quat::transform(const Vec3& vec) const noexcept
@@ -119,6 +119,6 @@ namespace math
         // [axis * sin(a/2), cos(a/2)]
         const float s = std::sin(angle * 0.5f);
         const float c = std::cos(angle * 0.5f);
-        return Quat{ .v = axis * s, .s = c };
+        return Quat(axis * s, c);
     }
 } // namespace math

@@ -14,7 +14,7 @@
 #include "components/SpriteSheetComponent.h"
 
 #include <numbers>
-#include <psm/PSMath.h>
+#include <math/SimpleMath.h>
 
 namespace asteroids::actors
 {

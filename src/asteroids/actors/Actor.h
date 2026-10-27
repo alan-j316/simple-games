@@ -11,7 +11,7 @@
 
 
 #include "components/Component.h"
-#include "psm/PSMath.h"
+#include <math/SimpleMath.h>
 
 #include <cstdint>
 #include <unordered_set>
@@ -74,7 +74,7 @@ namespace asteroids
             // GETTERS
             //+=+=+=+=+=
 
-            [[nodiscard]] psm::Vec2 getPosition() const noexcept { return _position; }
+            [[nodiscard]] math::Vec2 getPosition() const noexcept { return _position; }
             [[nodiscard]] float getScale() const noexcept { return _scale; }
             [[nodiscard]] float getRotation() const noexcept { return _rotation; }
             [[nodiscard]] State getState() const noexcept { return _state; }
@@ -83,8 +83,8 @@ namespace asteroids
             /// @brief Get the forward direction vector.
             /// @note Since SDL have a positive y-axis in the bottom
             ///       direction, the y-axis is negated.
-            [[nodiscard]] psm::Vec3 getForward() const noexcept
-            { return psm::Vec3{ std::cos(_rotation), -std::sin(_rotation), 0.0f }; }
+            [[nodiscard]] math::Vec3 getForward() const noexcept
+            { return math::Vec3{ std::cos(_rotation), -std::sin(_rotation), 0.0f }; }
 
 
 
@@ -93,7 +93,7 @@ namespace asteroids
             //+=+=+=+=+=
 
             /// @internal Vec2 is 8-bytes, we can pass it by value.
-            void setPosition(const psm::Vec2 position) { _position = position; }
+            void setPosition(const math::Vec2 position) { _position = position; }
             void setScale(const float scale) { _scale = scale; }
             void setRotation(const float rotation) { _rotation = rotation; }
             void setState(const State state) { _state = state; }
@@ -102,7 +102,7 @@ namespace asteroids
 
         private:
             State _state;
-            psm::Vec2 _position;
+            math::Vec2 _position;
             float _scale, _rotation;
 
             std::unordered_set<comp::Component*> _components;

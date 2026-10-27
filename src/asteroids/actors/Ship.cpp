@@ -15,7 +15,7 @@
 #include "components/InputComponent.h"
 #include "game/AsteroidGame.h"
 
-#include <psm/PSMath.h>
+#include <math/SimpleMath.h>
 
 
 namespace asteroids::actors
@@ -23,7 +23,7 @@ namespace asteroids::actors
 
     Ship::Ship(AsteroidGame* game) noexcept: Actor{ game }, _bulletCooldown{ BULLET_COOLDOWN }
     {
-        const auto position = psm::Vec2{ static_cast<float>(game->getWindowWidth()) / 2.0f,
+        const auto position = math::Vec2{ static_cast<float>(game->getWindowWidth()) / 2.0f,
                                          static_cast<float>(game->getWindowHeight()) / 2.0f };
         setPosition(position);
         setRotation(0.0f);

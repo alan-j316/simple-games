@@ -6,7 +6,7 @@
 
 #include "../actors/Actor.h"
 #include "../game/AsteroidGame.h"
-#include "psm/PSMath.h"
+#include <math/SimpleMath.h>
 
 
 namespace asteroids::comp

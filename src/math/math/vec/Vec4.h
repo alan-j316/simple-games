@@ -71,6 +71,12 @@ namespace math
 
         /// @brief Get the xyz component of the vector as a 3D vector.
         constexpr Vec3 xyz() const noexcept;
+
+        /// @brief Get a pointer to the underlying memory (const).
+        constexpr const float* ptr() const;
+
+        /// @brief Get a pointer to the underlying memory.
+        constexpr float* ptr();
     };
 
 
@@ -122,7 +128,6 @@ namespace math
         return dx * dx + dy * dy + dz * dz + dw * dw;
     }
 
-
     constexpr Vec2 Vec4::xy() const noexcept { return Vec2{ x, y }; }
 
     constexpr Vec3 Vec4::xyz() const noexcept { return Vec3{ x, y, z }; }
@@ -131,6 +136,8 @@ namespace math
 
     inline Vec4 Vec4::normalize() const noexcept { return *this / mag(); }
 
+    constexpr const float* Vec4::ptr() const { return &x; }
 
+    constexpr float* Vec4::ptr() { return &x; }
 
 } // namespace math

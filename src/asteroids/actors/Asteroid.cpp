@@ -12,20 +12,20 @@ namespace asteroids::actors
 {
     Asteroid::Asteroid(AsteroidGame* game) noexcept: Actor{ game }
     {
-        const auto position = psm::Vec2::getRandom(
-            psm::ZERO,
-            psm::Vec2{ static_cast<float>(game->getWindowWidth()), static_cast<float>(game->getWindowHeight()) });
+        const auto position = math::Vec2::getRandom(
+            math::ZERO,
+            math::Vec2{ static_cast<float>(game->getWindowWidth()), static_cast<float>(game->getWindowHeight()) });
         setPosition(position);
-        setRotation(psm::genRand(0.0f, std::numbers::pi_v<float>));
+        setRotation(math::genRand(0.0f, std::numbers::pi_v<float>));
 
         _sprite = new comp::SpriteSheetComponent(this);
         _sprite->setSpritesheetTexture(game->getTexture(SPRITE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT);
         // Select an active sprite index at random
         _sprite->setActiveIndex(
-            { .x = psm::genRand<size_t>(0, SPRITE_COUNT_X - 1), .y = psm::genRand<size_t>(0, SPRITE_COUNT_Y - 1) });
+            { .x = math::genRand<size_t>(0, SPRITE_COUNT_X - 1), .y = math::genRand<size_t>(0, SPRITE_COUNT_Y - 1) });
 
         auto* moveComp = new comp::MoveComponent(this);
-        moveComp->setForwardSpeed(psm::genRand(MIN_FORWARD_SPEED, MAX_FORWARD_SPEED));
+        moveComp->setForwardSpeed(math::genRand(MIN_FORWARD_SPEED, MAX_FORWARD_SPEED));
 
         _collider = new comp::CircleComponent(this);
         _collider->setCenter(getPosition());

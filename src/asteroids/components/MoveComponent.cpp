@@ -13,7 +13,7 @@
 #include "../actors/Actor.h"
 #include "game/AsteroidGame.h"
 
-#include <psm/PSMath.h>
+#include <math/SimpleMath.h>
 
 
 namespace asteroids::comp
@@ -24,9 +24,9 @@ namespace asteroids::comp
     void MoveComponent::update(const float deltaTime) noexcept
     {
         // Update the actor's position if the speed is non-zero
-        if (!psm::nearZero(_forwardSpeed))
+        if (!math::nearZero(_forwardSpeed))
         {
-            psm::Vec2 position = _owner->getPosition();
+            math::Vec2 position = _owner->getPosition();
             const auto forward = _owner->getForward().xy();
             position += forward * _forwardSpeed * deltaTime;
             // Rudimentary wrap around
@@ -36,7 +36,7 @@ namespace asteroids::comp
             _owner->setPosition(position);
         }
         // Update the actor's orientation if the angular speed is non-zero
-        if (!psm::nearZero(_angularSpeed))
+        if (!math::nearZero(_angularSpeed))
         {
             auto rotation = _owner->getRotation();
             rotation += _angularSpeed * deltaTime;

@@ -12,7 +12,7 @@
 
 #include "SpriteComponent.h"
 
-#include <psm/PSMath.h>
+#include <math/SimpleMath.h>
 #include <vector>
 
 namespace asteroids::comp
@@ -38,7 +38,7 @@ namespace asteroids::comp
 
         void setBGTexture(const std::vector<graphics::Texture<>*>& textures) noexcept;
 
-        void setScreenSize(const psm::Vec2 screenSize) noexcept { _screenSize = screenSize; }
+        void setScreenSize(const math::Vec2 screenSize) noexcept { _screenSize = screenSize; }
 
         void setScrollSpeed(const float speed) noexcept { _speed = speed; }
 
@@ -48,11 +48,11 @@ namespace asteroids::comp
         struct BGTexture
         {
             graphics::Texture<>* texture;
-            psm::Vec2 offset;
+            math::Vec2 offset;
         };
 
         std::vector<BGTexture> _bgTextures;
-        psm::Vec2 _screenSize;
+        math::Vec2 _screenSize;
         float _speed{};
     };
 } // namespace asteroids::comp
