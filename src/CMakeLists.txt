@@ -1,4 +1,5 @@
 add_subdirectory(core)
 add_subdirectory(math)
 add_subdirectory(tower_defense)
-add_subdirectory(fps)
+add_subdirectory(asteroids)
+add_subdirectory(pong)
